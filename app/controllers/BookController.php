@@ -11,10 +11,22 @@ class BookController
     }
     public function index()
     {
-        echo "Hello <br> You are in BookController::index()"; 
         $books = $this->bookModel->getAll();
          require __DIR__."/../views/BookView.php";
-       
-        //print_r($books->getAll());
+    }
+
+        public function create() {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->bookModel->create(
+                $_POST['title'],
+                $_POST['author'],
+                $_POST['isbn'],
+                $_POST['quantity']
+            );
+            header('Location: /4-%20Backend-Phase/D-4/HW/library/public/Books');
+            exit;
+        }
+        require __DIR__ . '/../views/createBook.php';
     }
 }

@@ -1,32 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title>Library - Books</title>
+    <meta charset="UTF-8">
+    <title>قائمة الكتب</title>
+    <style>
+        /* إضافة نفس الأنماط السابقة أو أنماط مخصصة */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .add-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Books</h1>
-    <a href="/books/create">Add New Book</a>
+    <h1>قائمة الكتب</h1>
+    <a href="/4-%20Backend-Phase/D-4/HW/library/public/addBook" class="add-btn">إضافة كتاب جديد</a>
     
-    <table border="1">
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>ISBN</th>
-            <th>Available</th>
-            <th>Actions</th>
-        </tr>
-        <?php foreach ($books as $book): ?>
-        <tr>
-            <td><?= htmlspecialchars($book['title']) ?></td>
-            <td><?= htmlspecialchars($book['author']) ?></td>
-            <td><?= htmlspecialchars($book['isbn']) ?></td>
-            <td><?= htmlspecialchars($book['available_quantity']) ?></td>
-            <td>
-                <a href="/books/edit/<?= $book['id'] ?>">Edit</a>
-                <a href="/books/delete/<?= $book['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
+    <table>
+        <thead>
+            <tr>
+                <th>العنوان</th>
+                <th>المؤلف</th>
+                <th>ISBN</th>
+                <th>الكمية</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($books as $book): ?>
+            <tr>
+                <td><?= htmlspecialchars($book['title']) ?></td>
+                <td><?= htmlspecialchars($book['author']) ?></td>
+                <td><?= htmlspecialchars($book['isbn']) ?></td>
+                <td><?= htmlspecialchars($book['quantity']) ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 </body>
 </html>
