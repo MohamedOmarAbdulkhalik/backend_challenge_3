@@ -10,3 +10,5 @@ $router->get('/4-%20Backend-Phase/D-4/HW/library/public/users',[UserController::
 $router->get('/4-%20Backend-Phase/D-4/HW/library/public/Books',[BookController::class,'index']);
 $router->get('/4-%20Backend-Phase/D-4/HW/library/public/addBook',[BookController::class,'create']);
 $router->post('/4-%20Backend-Phase/D-4/HW/library/public/addBook',[BookController::class,'create']);
+$router->post('/4-%20Backend-Phase/D-4/HW/library/public/addUser',[UserController::class,'create']);
+$router->get('/4-%20Backend-Phase/D-4/HW/library/public/addUser',[UserController::class,'create']);
